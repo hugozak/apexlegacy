@@ -100,10 +100,12 @@ export function StatBar({
         <span className="label">{label}</span>
         <span className="num text-sm text-white/90">
           {Math.round(value)}
-          {delta !== undefined && delta !== 0 && (
+          {delta !== undefined && Math.abs(delta) >= 0.1 && (
             <span className={delta > 0 ? "ml-1 text-mint" : "ml-1 text-danger"}>
-              {delta > 0 ? "+" : ""}
-              {Math.round(delta)}
+              {delta > 0 ? "+" : "−"}
+              {Math.abs(delta) < 1
+                ? Math.abs(delta).toFixed(1)
+                : Math.round(Math.abs(delta))}
             </span>
           )}
         </span>

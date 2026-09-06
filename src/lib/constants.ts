@@ -60,7 +60,8 @@ export const TIERS: Tier[] = [
     id: "ranked",
     name: "Ranked Ladder",
     short: "RANKED",
-    requires: { overall: 45, notoriety: 8 },
+    requires: { overall: 45, notoriety: 10 },
+    difficulty: 42,
     prizePool: 0,
     weeklySalary: 0,
     lobbySize: 20,
@@ -69,8 +70,9 @@ export const TIERS: Tier[] = [
     id: "scrims",
     name: "Scrims Amateurs",
     short: "SCRIMS",
-    requires: { overall: 55, notoriety: 20 },
-    prizePool: 400,
+    requires: { overall: 54, notoriety: 22 },
+    difficulty: 55,
+    prizePool: 300,
     weeklySalary: 0,
     lobbySize: 20,
   },
@@ -78,27 +80,30 @@ export const TIERS: Tier[] = [
     id: "challenger",
     name: "Challenger Circuit",
     short: "CHALLENGER",
-    requires: { overall: 65, notoriety: 35 },
-    prizePool: 3000,
-    weeklySalary: 120,
+    requires: { overall: 63, notoriety: 36 },
+    difficulty: 65,
+    prizePool: 1500,
+    weeklySalary: 150,
     lobbySize: 20,
   },
   {
     id: "proleague",
     name: "Pro League",
     short: "PRO LEAGUE",
-    requires: { overall: 74, notoriety: 55 },
-    prizePool: 12000,
-    weeklySalary: 600,
+    requires: { overall: 73, notoriety: 52 },
+    difficulty: 79,
+    prizePool: 5000,
+    weeklySalary: 700,
     lobbySize: 20,
   },
   {
     id: "algs",
     name: "ALGS Championship",
     short: "ALGS",
-    requires: { overall: 82, notoriety: 72 },
-    prizePool: 45000,
-    weeklySalary: 1600,
+    requires: { overall: 80, notoriety: 70 },
+    difficulty: 89,
+    prizePool: 12000,
+    weeklySalary: 1800,
     lobbySize: 20,
   },
   {
@@ -106,8 +111,9 @@ export const TIERS: Tier[] = [
     name: "LAN Internationale",
     short: "LAN",
     requires: { overall: 999, notoriety: 999 },
-    prizePool: 120000,
-    weeklySalary: 3000,
+    difficulty: 97,
+    prizePool: 30000,
+    weeklySalary: 3200,
     lobbySize: 20,
   },
 ];
@@ -116,6 +122,21 @@ export const TIER_ORDER: TierId[] = TIERS.map((t) => t.id);
 
 export function tierOf(id: TierId): Tier {
   return TIERS.find((t) => t.id === id)!;
+}
+
+export function tierIndex(id: TierId): number {
+  return TIER_ORDER.indexOf(id);
+}
+
+/**
+ * Niveau de génération des coéquipiers pour un palier. Calibré pour que leur
+ * note globale arrive juste sous le niveau des lobbies du palier : le trio
+ * est compétitif sans être offert.
+ */
+export function teammateLevelFor(id: TierId): number {
+  // La note globale générée vaut environ 0,89 × le niveau demandé : on vise
+  // des coéquipiers un cran sous le niveau des lobbies du palier.
+  return Math.min(94, Math.round((tierOf(id).difficulty - 6) / 0.89));
 }
 
 export const PERSONALITIES: Personality[] = [

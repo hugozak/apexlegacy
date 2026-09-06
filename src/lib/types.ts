@@ -25,6 +25,8 @@ export interface Tier {
   short: string;
   /** Seuils requis pour être promu depuis ce palier. */
   requires: { overall: number; notoriety: number };
+  /** Niveau moyen des équipes adverses dans les lobbies de ce palier. */
+  difficulty: number;
   /** Cash de base d'un tournoi à ce palier (1re place). */
   prizePool: number;
   /** Salaire hebdo sous contrat à ce palier. */

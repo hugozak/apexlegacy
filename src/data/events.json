@@ -1,0 +1,2117 @@
+[
+  {
+    "id": "igl_offer",
+    "title": "Ton IGL hésite",
+    "text": "Une top équipe de ta région contacte ton IGL. Il t'en parle le soir, après les scrims : \"Ils veulent une réponse cette semaine. Je sais pas quoi faire.\"",
+    "category": "team",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 15
+    },
+    "choices": [
+      {
+        "label": "Le pousser à partir, c'est sa carrière",
+        "outcome": "Il te serre la main et signe. Le trio est à reconstruire, mais il ne t'oubliera pas.",
+        "effects": {
+          "stats": {
+            "mental": -5,
+            "notoriety": 3
+          },
+          "chemistry": -15,
+          "flags": [
+            "teammate_leaves"
+          ]
+        }
+      },
+      {
+        "label": "Le convaincre de rester avec toi",
+        "outcome": "Tu passes deux heures à lui vendre le projet. Il reste. Le trio se soude.",
+        "effects": {
+          "stats": {
+            "leadership": 5,
+            "mental": -3
+          },
+          "chemistry": 12
+        }
+      },
+      {
+        "label": "Ne rien dire, le laisser décider seul",
+        "outcome": "Il interprète ton silence comme du désintérêt. Il part sans un mot.",
+        "effects": {
+          "stats": {
+            "mental": -8
+          },
+          "chemistry": -20,
+          "flags": [
+            "teammate_leaves"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "bad_org_contract",
+    "title": "Un contrat, mais à quel prix",
+    "text": "Un org de seconde zone t'offre un salaire correct. Le hic : tu joueras avec deux joueurs bien en dessous de ton niveau.",
+    "category": "org",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 12,
+      "hasContract": false
+    },
+    "choices": [
+      {
+        "label": "Signer, l'argent d'abord",
+        "outcome": "Tu signes. Le salaire tombe, les résultats non.",
+        "effects": {
+          "money": 800,
+          "stats": {
+            "notoriety": 4,
+            "mental": -3
+          },
+          "chemistry": -10,
+          "flags": [
+            "sign_contract",
+            "downgrade_teammates"
+          ]
+        }
+      },
+      {
+        "label": "Refuser et rester libre",
+        "outcome": "Tu déclines poliment. Ton agent soupire, ton mental tient.",
+        "effects": {
+          "stats": {
+            "mental": 3,
+            "notoriety": -2
+          }
+        }
+      },
+      {
+        "label": "Négocier pour garder ton trio",
+        "outcome": "Ils acceptent à moitié : moins de salaire, mais tu gardes tes joueurs.",
+        "effects": {
+          "money": 300,
+          "stats": {
+            "leadership": 4
+          },
+          "chemistry": 6,
+          "flags": [
+            "sign_contract"
+          ]
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "clash_fragger",
+    "title": "Clash en scrim",
+    "text": "Ton fragger te hurle dessus après un third party mal géré. Le vocal devient irrespirable, il reste 40 minutes de scrim.",
+    "category": "team",
+    "weight": 12,
+    "conditions": {
+      "minWeek": 6
+    },
+    "choices": [
+      {
+        "label": "Répondre sur le même ton",
+        "outcome": "Vous criez tous les deux. Le troisième mute tout le monde.",
+        "effects": {
+          "stats": {
+            "mental": -6
+          },
+          "chemistry": -14
+        }
+      },
+      {
+        "label": "Encaisser et recadrer après le scrim",
+        "outcome": "Tu laisses passer, puis tu poses les choses au calme. Il s'excuse à moitié.",
+        "effects": {
+          "stats": {
+            "leadership": 5,
+            "mental": -2
+          },
+          "chemistry": 5
+        }
+      },
+      {
+        "label": "Reconnaître ton erreur en direct",
+        "outcome": "\"Ma faute, on repart.\" Le vocal se détend instantanément.",
+        "effects": {
+          "stats": {
+            "leadership": 3,
+            "gameSense": 2,
+            "mental": -1
+          },
+          "chemistry": 9
+        }
+      }
+    ]
+  },
+  {
+    "id": "meta_shift_down",
+    "title": "Le patch te tue",
+    "text": "Le nouveau patch nerf ta légende main en profondeur. Les stats de pick chutent, les analystes la déclarent morte.",
+    "category": "meta",
+    "weight": 11,
+    "conditions": {
+      "minWeek": 10
+    },
+    "choices": [
+      {
+        "label": "Apprendre une nouvelle légende à fond",
+        "outcome": "Trois semaines de galère, puis ça revient. Tu es plus complet qu'avant.",
+        "effects": {
+          "stats": {
+            "gameSense": 4,
+            "mental": -5,
+            "aim": -2
+          },
+          "flags": [
+            "switch_legend"
+          ]
+        }
+      },
+      {
+        "label": "Continuer à la jouer par principe",
+        "outcome": "Tu la joues quand même. Certains admirent, les résultats souffrent.",
+        "effects": {
+          "stats": {
+            "mental": -2,
+            "notoriety": 2
+          },
+          "flags": [
+            "meta_down"
+          ]
+        }
+      },
+      {
+        "label": "Attendre le patch correctif",
+        "outcome": "Tu joues petit bras en attendant. Le temps passe.",
+        "effects": {
+          "stats": {
+            "mental": -3
+          },
+          "flags": [
+            "meta_down"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "caster_criticism",
+    "title": "Un caster te démonte",
+    "text": "En plein cast d'un match, un caster connu te cite en exemple de \"joueur surcoté qui vit sur sa réputation\". Le clip tourne.",
+    "category": "media",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 20,
+      "minStats": {
+        "notoriety": 25
+      }
+    },
+    "choices": [
+      {
+        "label": "Répondre publiquement",
+        "outcome": "Ton post fait le tour du twitter esport. La moitié te soutient, l'autre en rajoute.",
+        "effects": {
+          "stats": {
+            "notoriety": 7,
+            "mental": -6
+          }
+        }
+      },
+      {
+        "label": "Ignorer et bosser",
+        "outcome": "Tu coupes les notifications et tu retournes au range.",
+        "effects": {
+          "stats": {
+            "aim": 2,
+            "mental": -2
+          }
+        }
+      },
+      {
+        "label": "L'inviter en interview pour en parler",
+        "outcome": "L'échange est sain, le format cartonne. Il nuance ses propos.",
+        "effects": {
+          "stats": {
+            "notoriety": 5,
+            "leadership": 3,
+            "mental": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "streamer_collab",
+    "title": "Collab stream",
+    "text": "Un streamer variety à 20k viewers te propose une session duo sur sa chaîne, ce week-end.",
+    "category": "opportunite",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 8
+    },
+    "choices": [
+      {
+        "label": "Accepter, viser la visibilité",
+        "outcome": "Le stream explose. Tu gagnes des milliers de followers et une fatigue certaine.",
+        "effects": {
+          "stats": {
+            "notoriety": 9,
+            "mental": -4
+          },
+          "money": 400
+        }
+      },
+      {
+        "label": "Refuser, les scrims d'abord",
+        "outcome": "Tu restes sur ta prépa. Ton IGL apprécie le sérieux.",
+        "effects": {
+          "stats": {
+            "gameSense": 3
+          },
+          "chemistry": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "stream_sniping",
+    "title": "Accusation de stream sniping",
+    "text": "Un thread accuse ton équipe d'avoir stream sniped un lobby de scrim. Les preuves sont minces mais bruyantes.",
+    "category": "media",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 25
+    },
+    "choices": [
+      {
+        "label": "Publier vos POV complets",
+        "outcome": "Transparence totale. Le thread s'effondre, ta cote de sérieux monte.",
+        "effects": {
+          "stats": {
+            "notoriety": 4,
+            "mental": -3,
+            "leadership": 3
+          },
+          "chemistry": 5
+        }
+      },
+      {
+        "label": "Laisser l'org gérer",
+        "outcome": "Le communiqué tombe trois jours trop tard. Le doute s'installe.",
+        "effects": {
+          "stats": {
+            "notoriety": -3,
+            "mental": -5
+          },
+          "chemistry": -5
+        }
+      },
+      {
+        "label": "Attaquer les accusateurs",
+        "outcome": "Ça part en guerre de tweets. Beaucoup de vues, peu de crédibilité.",
+        "effects": {
+          "stats": {
+            "notoriety": 6,
+            "mental": -7
+          },
+          "chemistry": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "exhibition_invite",
+    "title": "Tournoi exhibition à l'étranger",
+    "text": "Un organisateur t'invite à un show match à l'autre bout du monde. Cachet correct, prépa sacrifiée.",
+    "category": "opportunite",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 30,
+      "minStats": {
+        "notoriety": 30
+      }
+    },
+    "choices": [
+      {
+        "label": "Y aller",
+        "outcome": "Une semaine d'avion, de scène et de fans. Tu rentres vidé mais connu.",
+        "effects": {
+          "money": 2500,
+          "stats": {
+            "notoriety": 8,
+            "mental": -7,
+            "movement": 1
+          },
+          "chemistry": -4
+        }
+      },
+      {
+        "label": "Décliner, la saison passe avant",
+        "outcome": "Tu restes en bootcamp. Le trio tourne bien.",
+        "effects": {
+          "stats": {
+            "gameSense": 3,
+            "mental": 2
+          },
+          "chemistry": 7
+        }
+      }
+    ]
+  },
+  {
+    "id": "ranked_disaster",
+    "title": "Nuit blanche en ranked",
+    "text": "Neuf heures de ranked, six games perdues d'affilée, deux teammates random qui hot drop. Il est 5h du matin.",
+    "category": "perso",
+    "weight": 13,
+    "conditions": {
+      "minWeek": 3
+    },
+    "choices": [
+      {
+        "label": "Éteindre et dormir",
+        "outcome": "Tu coupes. Demain sera meilleur.",
+        "effects": {
+          "stats": {
+            "mental": 4
+          }
+        }
+      },
+      {
+        "label": "Continuer jusqu'au reset",
+        "outcome": "Tu finis à 8h, les yeux rouges, un rang plus bas.",
+        "effects": {
+          "stats": {
+            "mental": -9,
+            "aim": 1
+          }
+        }
+      },
+      {
+        "label": "Passer sur du aim training à la place",
+        "outcome": "Tu transformes la frustration en reps propres.",
+        "effects": {
+          "stats": {
+            "aim": 3,
+            "mental": -2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sponsor_energy",
+    "title": "Sponsor boisson énergisante",
+    "text": "Une marque te propose un partenariat : trois posts par mois et le logo en overlay.",
+    "category": "org",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 20,
+      "minStats": {
+        "notoriety": 28
+      }
+    },
+    "choices": [
+      {
+        "label": "Signer",
+        "outcome": "L'argent tombe. Tes viewers te chambrent gentiment.",
+        "effects": {
+          "money": 1800,
+          "stats": {
+            "notoriety": 3,
+            "mental": -2
+          }
+        }
+      },
+      {
+        "label": "Refuser, tu n'y crois pas",
+        "outcome": "Tu passes ton tour. Ton audience respecte la cohérence.",
+        "effects": {
+          "stats": {
+            "notoriety": 2,
+            "mental": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "teammate_smurf_scandal",
+    "title": "Ton coéquipier smurf",
+    "text": "On découvre que ton anchor grind sur un compte smurf pour clip des lobbies bas rang. Les screens circulent.",
+    "category": "team",
+    "weight": 7,
+    "conditions": {
+      "minWeek": 25
+    },
+    "choices": [
+      {
+        "label": "Le couvrir publiquement",
+        "outcome": "Tu prends une partie des coups à sa place. Il ne l'oublie pas.",
+        "effects": {
+          "stats": {
+            "notoriety": -3,
+            "mental": -4
+          },
+          "chemistry": 10
+        }
+      },
+      {
+        "label": "Te désolidariser",
+        "outcome": "Tu clarifies que c'est son affaire. Il le prend très mal.",
+        "effects": {
+          "stats": {
+            "notoriety": 2
+          },
+          "chemistry": -12
+        }
+      }
+    ]
+  },
+  {
+    "id": "family_pressure",
+    "title": "Discussion familiale",
+    "text": "Tes parents veulent une conversation sérieuse : \"Et si ça ne marche pas ? Tu fais quoi à 25 ans ?\"",
+    "category": "perso",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 5,
+      "maxWeek": 90
+    },
+    "choices": [
+      {
+        "label": "Défendre ton projet avec un plan clair",
+        "outcome": "Tu poses des objectifs datés. Ils lâchent du lest.",
+        "effects": {
+          "stats": {
+            "leadership": 4,
+            "mental": 5
+          }
+        }
+      },
+      {
+        "label": "Promettre de reprendre les cours en parallèle",
+        "outcome": "Compromis accepté, mais tes semaines se remplissent.",
+        "effects": {
+          "stats": {
+            "mental": 2,
+            "gameSense": -1
+          },
+          "money": 200
+        }
+      },
+      {
+        "label": "Couper court, éviter le sujet",
+        "outcome": "Le sujet reste en travers. Ça pèse plus que prévu.",
+        "effects": {
+          "stats": {
+            "mental": -6
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "coach_offer",
+    "title": "Un coach s'intéresse à toi",
+    "text": "Un coach reconnu propose de te suivre individuellement. Séances de VOD, préparation mentale, exigence maximale.",
+    "category": "opportunite",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 15
+    },
+    "choices": [
+      {
+        "label": "Accepter et payer de ta poche",
+        "outcome": "C'est cher et dur. C'est aussi ce qui te fait franchir un cap.",
+        "effects": {
+          "money": -900,
+          "stats": {
+            "gameSense": 7,
+            "leadership": 3,
+            "mental": 3
+          }
+        }
+      },
+      {
+        "label": "Refuser, tu progresses seul",
+        "outcome": "Tu continues à ta manière.",
+        "effects": {
+          "stats": {
+            "mental": 1
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "pc_dies",
+    "title": "Ton PC lâche",
+    "text": "Écran noir en plein scrim. La carte graphique est morte, la veille d'un tournoi.",
+    "category": "perso",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 4
+    },
+    "choices": [
+      {
+        "label": "Racheter du matériel immédiatement",
+        "outcome": "Le budget prend cher, mais tu joues sans compromis.",
+        "effects": {
+          "money": -1200,
+          "stats": {
+            "mental": -2,
+            "aim": 2
+          }
+        }
+      },
+      {
+        "label": "Emprunter le setup d'un ami",
+        "outcome": "Souris inconnue, sensi approximative. Tu fais avec.",
+        "effects": {
+          "stats": {
+            "aim": -4,
+            "mental": -3
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "viral_clip",
+    "title": "Ton clip devient viral",
+    "text": "Un 1v3 en fin de zone passe la barre du million de vues. Ton nom circule partout pendant 48h.",
+    "category": "media",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 10,
+      "minStats": {
+        "aim": 45
+      }
+    },
+    "choices": [
+      {
+        "label": "Capitaliser : stream tous les soirs",
+        "outcome": "Tu surfes sur la vague. La chaîne double, la fatigue aussi.",
+        "effects": {
+          "stats": {
+            "notoriety": 10,
+            "mental": -5
+          },
+          "money": 700
+        }
+      },
+      {
+        "label": "Rester concentré sur la compétition",
+        "outcome": "Le pic retombe, mais ton niveau monte.",
+        "effects": {
+          "stats": {
+            "notoriety": 4,
+            "gameSense": 3,
+            "mental": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "wrist_pain",
+    "title": "Douleur au poignet",
+    "text": "Depuis deux semaines, ton poignet chauffe après une heure de jeu. Le kiné parle de repos complet.",
+    "category": "perso",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 30
+    },
+    "choices": [
+      {
+        "label": "Prendre deux semaines off",
+        "outcome": "Tu coupes tout. Le poignet guérit, le classement souffre.",
+        "effects": {
+          "stats": {
+            "aim": -3,
+            "mental": 8
+          },
+          "chemistry": -4
+        }
+      },
+      {
+        "label": "Serrer les dents et jouer",
+        "outcome": "Tu joues infiltré aux anti-inflammatoires. Ça tient. Pour l'instant.",
+        "effects": {
+          "stats": {
+            "aim": -1,
+            "mental": -7
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "toxic_teammate_public",
+    "title": "Sortie toxique en public",
+    "text": "Ton coéquipier insulte un adversaire sur son propre stream. Le clip est repris par tous les comptes drama.",
+    "category": "team",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 20
+    },
+    "choices": [
+      {
+        "label": "Lui imposer des excuses publiques",
+        "outcome": "Il s'exécute en grinçant des dents. L'affaire s'éteint.",
+        "effects": {
+          "stats": {
+            "leadership": 5,
+            "notoriety": 2
+          },
+          "chemistry": -6
+        }
+      },
+      {
+        "label": "Le soutenir, la scène est comme ça",
+        "outcome": "Le vestiaire est content, l'image de l'équipe moins.",
+        "effects": {
+          "stats": {
+            "notoriety": -4
+          },
+          "chemistry": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "tryout_invite",
+    "title": "Invitation à un tryout",
+    "text": "Une structure du palier au-dessus organise des tryouts. Tu es sur la liste, pas en tête.",
+    "category": "opportunite",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 18
+    },
+    "choices": [
+      {
+        "label": "Y aller à fond",
+        "outcome": "Deux jours d'évaluation intense. Tu sors du lot sur les rotations.",
+        "effects": {
+          "stats": {
+            "gameSense": 4,
+            "notoriety": 5,
+            "mental": -3
+          }
+        }
+      },
+      {
+        "label": "Décliner, tu n'es pas prêt",
+        "outcome": "Tu préfères attendre. Peut-être trop.",
+        "effects": {
+          "stats": {
+            "mental": -2,
+            "notoriety": -1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "false_ban",
+    "title": "Ban anti-cheat erroné",
+    "text": "Ton compte principal saute pour \"comportement suspect\". Le support ne répond pas.",
+    "category": "perso",
+    "weight": 6,
+    "conditions": {
+      "minWeek": 22
+    },
+    "choices": [
+      {
+        "label": "Faire du bruit publiquement",
+        "outcome": "Le poids de ta communauté débloque le dossier en 48h.",
+        "effects": {
+          "stats": {
+            "notoriety": 5,
+            "mental": -4
+          }
+        }
+      },
+      {
+        "label": "Attendre la procédure",
+        "outcome": "Trois semaines sans compte. Tu perds le rythme.",
+        "effects": {
+          "stats": {
+            "aim": -3,
+            "gameSense": -2,
+            "mental": -6
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "strat_leak",
+    "title": "Fuite de stratégie",
+    "text": "Vos rotations de fin de zone se retrouvent dans un doc partagé chez un concurrent. Quelqu'un a parlé.",
+    "category": "team",
+    "weight": 7,
+    "conditions": {
+      "minWeek": 35
+    },
+    "choices": [
+      {
+        "label": "Enquêter dans l'équipe",
+        "outcome": "Ambiance de procès. Tu trouves la faille : un ex-remplaçant.",
+        "effects": {
+          "stats": {
+            "gameSense": 2,
+            "mental": -4
+          },
+          "chemistry": -8
+        }
+      },
+      {
+        "label": "Tourner la page et changer tout le playbook",
+        "outcome": "Semaine de travail intense, mais vous repartez propres.",
+        "effects": {
+          "stats": {
+            "gameSense": 5,
+            "mental": -3
+          },
+          "chemistry": 6
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "burnout_warning",
+    "title": "Le mur",
+    "text": "Tu lances le jeu, tu regardes le menu, tu fermes. Trois fois de suite. Tu n'as plus envie.",
+    "category": "perso",
+    "weight": 16,
+    "conditions": {
+      "maxStats": {
+        "mental": 28
+      }
+    },
+    "choices": [
+      {
+        "label": "Annoncer une pause d'un mois",
+        "outcome": "Tu débranches tout. Le monde tourne sans toi, et c'est reposant.",
+        "effects": {
+          "stats": {
+            "mental": 22,
+            "notoriety": -4,
+            "aim": -3
+          },
+          "chemistry": -8
+        }
+      },
+      {
+        "label": "Voir un psy du sport",
+        "outcome": "Trois séances plus tard, tu remets des mots sur la pression.",
+        "effects": {
+          "money": -400,
+          "stats": {
+            "mental": 15
+          }
+        }
+      },
+      {
+        "label": "Forcer, la saison n'attend pas",
+        "outcome": "Tu tiens. Mal.",
+        "effects": {
+          "stats": {
+            "mental": -8,
+            "aim": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fan_meetup",
+    "title": "Un fan te reconnaît",
+    "text": "Dans la rue, un gamin de 14 ans te reconnaît et bafouille qu'il joue ta légende à cause de toi.",
+    "category": "perso",
+    "weight": 9,
+    "conditions": {
+      "minStats": {
+        "notoriety": 35
+      }
+    },
+    "choices": [
+      {
+        "label": "Prendre le temps de discuter",
+        "outcome": "Vingt minutes de conversation. Tu te souviens pourquoi tu fais ça.",
+        "effects": {
+          "stats": {
+            "mental": 7,
+            "notoriety": 2
+          }
+        }
+      },
+      {
+        "label": "Selfie rapide et filer",
+        "outcome": "Photo, sourire, et tu repars à ta prépa.",
+        "effects": {
+          "stats": {
+            "mental": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "rival_trashtalk",
+    "title": "Trash talk d'un rival",
+    "text": "Le fragger d'une équipe rivale t'annonce en interview : \"On les mange en poule, ils ont jamais rien gagné.\"",
+    "category": "media",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 25
+    },
+    "choices": [
+      {
+        "label": "Répondre avec panache",
+        "outcome": "Ta punchline tourne plus que la sienne. La pression est sur toi maintenant.",
+        "effects": {
+          "stats": {
+            "notoriety": 6,
+            "mental": -3
+          },
+          "chemistry": 4
+        }
+      },
+      {
+        "label": "Répondre sur le serveur",
+        "outcome": "Tu ne dis rien et tu prépares. Le trio est en mission.",
+        "effects": {
+          "stats": {
+            "gameSense": 3,
+            "mental": 2
+          },
+          "chemistry": 6
+        }
+      },
+      {
+        "label": "Le prendre personnellement",
+        "outcome": "Tu y penses toute la semaine. Mauvais carburant.",
+        "effects": {
+          "stats": {
+            "mental": -7,
+            "aim": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bootcamp_offer",
+    "title": "Bootcamp avant le major",
+    "text": "L'org propose deux semaines de bootcamp en gaming house avant le tournoi majeur.",
+    "category": "org",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 30,
+      "tiers": [
+        "challenger",
+        "proleague",
+        "algs",
+        "lan"
+      ]
+    },
+    "choices": [
+      {
+        "label": "Bootcamp intensif",
+        "outcome": "Douze heures par jour ensemble. Le trio ne s'est jamais aussi bien compris.",
+        "effects": {
+          "stats": {
+            "gameSense": 6,
+            "mental": -6
+          },
+          "chemistry": 16
+        }
+      },
+      {
+        "label": "Rythme allégé, préserver le mental",
+        "outcome": "Vous bossez sérieusement, sans vous cramer.",
+        "effects": {
+          "stats": {
+            "gameSense": 3,
+            "mental": 2
+          },
+          "chemistry": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "meta_shift_up",
+    "title": "Le patch te sert",
+    "text": "La nouvelle saison remonte ta légende main au sommet des tier lists. Tu as déjà mille heures dessus.",
+    "category": "meta",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 12
+    },
+    "choices": [
+      {
+        "label": "Exploiter l'avantage à fond",
+        "outcome": "Tu domines les lobbies pendant des semaines.",
+        "effects": {
+          "stats": {
+            "notoriety": 4,
+            "mental": 4
+          },
+          "flags": [
+            "meta_up"
+          ]
+        }
+      },
+      {
+        "label": "Rester polyvalent quand même",
+        "outcome": "Tu ne veux pas dépendre d'un patch. Sage.",
+        "effects": {
+          "stats": {
+            "gameSense": 4,
+            "movement": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "contract_renewal",
+    "title": "Renouvellement de contrat",
+    "text": "Ton org veut prolonger. Le manager sort un chiffre en attendant ta réaction.",
+    "category": "org",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 40,
+      "hasContract": true
+    },
+    "choices": [
+      {
+        "label": "Négocier dur",
+        "outcome": "Tu obtiens plus, mais on t'attend au tournant.",
+        "effects": {
+          "money": 2200,
+          "stats": {
+            "leadership": 3,
+            "mental": -3
+          }
+        }
+      },
+      {
+        "label": "Signer tel quel",
+        "outcome": "Signature rapide, relation sereine.",
+        "effects": {
+          "money": 900,
+          "stats": {
+            "mental": 3
+          },
+          "chemistry": 4
+        }
+      },
+      {
+        "label": "Refuser et tester le marché",
+        "outcome": "Tu redeviens agent libre. Le téléphone ne sonne pas tout de suite.",
+        "effects": {
+          "stats": {
+            "mental": -4,
+            "notoriety": 2
+          },
+          "flags": [
+            "lose_contract"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "salary_late",
+    "title": "Salaires en retard",
+    "text": "Troisième mois sans virement. Le manager parle de \"décalage de trésorerie\".",
+    "category": "org",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 45,
+      "hasContract": true
+    },
+    "choices": [
+      {
+        "label": "Rendre l'affaire publique",
+        "outcome": "L'org paie sous 48h et te déteste. Les autres joueurs te remercient.",
+        "effects": {
+          "money": 1500,
+          "stats": {
+            "notoriety": 5,
+            "mental": -4
+          }
+        }
+      },
+      {
+        "label": "Patienter encore un mois",
+        "outcome": "L'org coule doucement. Tu perds ton contrat et tes arriérés.",
+        "effects": {
+          "stats": {
+            "mental": -8
+          },
+          "flags": [
+            "lose_contract"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "teammate_wants_igl",
+    "title": "Guerre de leadership",
+    "text": "Ton coéquipier veut reprendre les calls. \"Tes rotations nous coûtent des points.\"",
+    "category": "team",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 20
+    },
+    "choices": [
+      {
+        "label": "Lui céder les calls",
+        "outcome": "Tu lâches le micro. Moins de charge mentale, moins d'influence.",
+        "effects": {
+          "stats": {
+            "leadership": -5,
+            "mental": 5
+          },
+          "chemistry": 8
+        }
+      },
+      {
+        "label": "Défendre ton rôle avec des chiffres",
+        "outcome": "Tu sors les stats de placement. Il se range à ton avis.",
+        "effects": {
+          "stats": {
+            "leadership": 6,
+            "gameSense": 3,
+            "mental": -3
+          },
+          "chemistry": -3
+        }
+      },
+      {
+        "label": "Alterner selon les maps",
+        "outcome": "Compromis intelligent, un peu bancal en pratique.",
+        "effects": {
+          "stats": {
+            "leadership": 2,
+            "gameSense": 2
+          },
+          "chemistry": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "interview_request",
+    "title": "Demande d'interview",
+    "text": "Un média esport veut un portrait long format sur ton parcours.",
+    "category": "media",
+    "weight": 9,
+    "conditions": {
+      "minStats": {
+        "notoriety": 30
+      }
+    },
+    "choices": [
+      {
+        "label": "Tout raconter, sans filtre",
+        "outcome": "L'article touche du monde. Certaines phrases te suivront longtemps.",
+        "effects": {
+          "stats": {
+            "notoriety": 8,
+            "mental": -2
+          }
+        }
+      },
+      {
+        "label": "Rester très lisse",
+        "outcome": "Papier propre et oubliable.",
+        "effects": {
+          "stats": {
+            "notoriety": 3
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "skin_gamble",
+    "title": "Le pari du collector",
+    "text": "L'event collector est là. Tout le monde craft. Ton budget te regarde de travers.",
+    "category": "perso",
+    "weight": 8,
+    "conditions": {
+      "minMoney": 600
+    },
+    "choices": [
+      {
+        "label": "Craft complet en live",
+        "outcome": "Le stream adore. Le compte en banque moins.",
+        "effects": {
+          "money": -500,
+          "stats": {
+            "notoriety": 4,
+            "mental": 2
+          }
+        }
+      },
+      {
+        "label": "Passer son tour",
+        "outcome": "Tu gardes ton argent. Personne n'en parle.",
+        "effects": {
+          "money": 0,
+          "stats": {
+            "mental": -1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hardware_sponsor",
+    "title": "Sponsor périphériques",
+    "text": "Une marque te propose souris, clavier et écran contre de la visibilité.",
+    "category": "org",
+    "weight": 9,
+    "conditions": {
+      "minStats": {
+        "notoriety": 22
+      }
+    },
+    "choices": [
+      {
+        "label": "Accepter et changer de setup",
+        "outcome": "Nouveau matos, deux semaines d'adaptation, puis du confort.",
+        "effects": {
+          "money": 600,
+          "stats": {
+            "aim": 2,
+            "mental": -2,
+            "notoriety": 2
+          }
+        }
+      },
+      {
+        "label": "Accepter mais garder ta souris",
+        "outcome": "Tu négocies l'exception. Ils acceptent à contrecœur.",
+        "effects": {
+          "money": 400,
+          "stats": {
+            "notoriety": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "duo_invite",
+    "title": "Un pro veut duo avec toi",
+    "text": "Un joueur du palier supérieur t'ajoute et propose de grind la ranked ensemble.",
+    "category": "opportunite",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 12
+    },
+    "choices": [
+      {
+        "label": "Grind avec lui tous les soirs",
+        "outcome": "Le niveau de jeu autour de toi te tire vers le haut.",
+        "effects": {
+          "stats": {
+            "aim": 3,
+            "gameSense": 3,
+            "notoriety": 3,
+            "mental": -2
+          }
+        }
+      },
+      {
+        "label": "Refuser, rester avec ton trio",
+        "outcome": "Le trio reste la priorité.",
+        "effects": {
+          "chemistry": 7,
+          "stats": {
+            "mental": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sleep_schedule",
+    "title": "Décalage horaire permanent",
+    "text": "Tes scrims finissent à 3h. Tu te lèves à 14h. Ton corps proteste.",
+    "category": "perso",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 15
+    },
+    "choices": [
+      {
+        "label": "Imposer un rythme sain à l'équipe",
+        "outcome": "Négociation difficile, mais tout le monde dort mieux.",
+        "effects": {
+          "stats": {
+            "mental": 8,
+            "leadership": 3
+          },
+          "chemistry": -3
+        }
+      },
+      {
+        "label": "S'adapter, c'est le métier",
+        "outcome": "Tu tiens sur la caféine.",
+        "effects": {
+          "stats": {
+            "mental": -5,
+            "aim": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "school_exams",
+    "title": "Semaine d'examens",
+    "text": "Les partiels tombent en pleine phase de qualification.",
+    "category": "perso",
+    "weight": 9,
+    "conditions": {
+      "maxWeek": 60
+    },
+    "choices": [
+      {
+        "label": "Réviser sérieusement",
+        "outcome": "Tu sécurises l'après-carrière. Une semaine de compétition sacrifiée.",
+        "effects": {
+          "stats": {
+            "gameSense": -1,
+            "mental": 4
+          },
+          "chemistry": -4
+        }
+      },
+      {
+        "label": "Sacrifier les exams",
+        "outcome": "Tu joues. Les résultats scolaires tombent, la famille aussi.",
+        "effects": {
+          "stats": {
+            "mental": -5,
+            "aim": 2,
+            "gameSense": 2
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "cheat_offer",
+    "title": "La proposition de trop",
+    "text": "Un contact anonyme te propose un \"outil discret, indétectable\" pour sécuriser la qualification.",
+    "category": "perso",
+    "weight": 5,
+    "conditions": {
+      "minWeek": 40
+    },
+    "choices": [
+      {
+        "label": "Refuser net et le signaler",
+        "outcome": "Tu transmets tout à l'organisateur. Ton intégrité fait le tour de la scène.",
+        "effects": {
+          "stats": {
+            "notoriety": 5,
+            "mental": 4,
+            "leadership": 3
+          }
+        }
+      },
+      {
+        "label": "Bloquer et ne rien dire",
+        "outcome": "Tu effaces la conversation et tu passes à autre chose.",
+        "effects": {
+          "stats": {
+            "mental": -1
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "media_day",
+    "title": "Media day de la ligue",
+    "text": "Photos, interviews, contenus sponsors : une journée entière hors du jeu.",
+    "category": "media",
+    "weight": 9,
+    "conditions": {
+      "tiers": [
+        "proleague",
+        "algs",
+        "lan"
+      ]
+    },
+    "choices": [
+      {
+        "label": "Jouer le jeu à fond",
+        "outcome": "Tu deviens un visage de la ligue.",
+        "effects": {
+          "stats": {
+            "notoriety": 7,
+            "mental": -3
+          },
+          "money": 500
+        }
+      },
+      {
+        "label": "Faire le minimum",
+        "outcome": "Tu expédies et tu rentres scrim.",
+        "effects": {
+          "stats": {
+            "gameSense": 2,
+            "notoriety": -1
+          },
+          "chemistry": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "mental_coach",
+    "title": "Préparateur mental",
+    "text": "L'org met un préparateur mental à disposition. Certains joueurs se moquent de \"la thérapie\".",
+    "category": "org",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 25
+    },
+    "choices": [
+      {
+        "label": "Suivre les séances sérieusement",
+        "outcome": "Tu apprends à gérer la fin de zone et les défaites.",
+        "effects": {
+          "stats": {
+            "mental": 12,
+            "gameSense": 2
+          }
+        }
+      },
+      {
+        "label": "Refuser, tu gères",
+        "outcome": "Tu passes ton tour. On verra bien.",
+        "effects": {
+          "stats": {
+            "mental": -2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "rookie_tryout",
+    "title": "L'org teste un remplaçant",
+    "text": "Un rookie de 16 ans est invité à scrim à ta place pendant deux jours. Le message est clair.",
+    "category": "org",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 50
+    },
+    "choices": [
+      {
+        "label": "L'aider et le prendre sous ton aile",
+        "outcome": "Il te vénère et l'org note ton attitude. Tu restes titulaire.",
+        "effects": {
+          "stats": {
+            "leadership": 6,
+            "mental": -2
+          },
+          "chemistry": 6
+        }
+      },
+      {
+        "label": "Écraser la concurrence en scrim",
+        "outcome": "Tu sors deux jours monstrueux. Le rookie repart.",
+        "effects": {
+          "stats": {
+            "aim": 4,
+            "mental": -5
+          },
+          "chemistry": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "org_merger",
+    "title": "Rachat de l'org",
+    "text": "Un gros groupe rachète ta structure. Nouveau staff, nouvelles exigences, nouveaux budgets.",
+    "category": "org",
+    "weight": 7,
+    "conditions": {
+      "minWeek": 60,
+      "hasContract": true
+    },
+    "choices": [
+      {
+        "label": "Rester et s'adapter",
+        "outcome": "Plus de moyens, plus de pression. Le salaire suit.",
+        "effects": {
+          "money": 2000,
+          "stats": {
+            "notoriety": 4,
+            "mental": -4
+          }
+        }
+      },
+      {
+        "label": "Activer ta clause de sortie",
+        "outcome": "Tu redeviens libre au pire moment de la saison.",
+        "effects": {
+          "stats": {
+            "mental": -3,
+            "notoriety": 1
+          },
+          "flags": [
+            "lose_contract"
+          ]
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "veteran_advice",
+    "title": "Le conseil d'un vétéran",
+    "text": "Un joueur en fin de carrière t'attrape après un tournoi : \"Tu veux un conseil ? Arrête de jouer pour prouver.\"",
+    "category": "perso",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 45
+    },
+    "choices": [
+      {
+        "label": "Écouter et changer d'approche",
+        "outcome": "Tu joues plus libre. Tu joues mieux.",
+        "effects": {
+          "stats": {
+            "mental": 9,
+            "gameSense": 3
+          }
+        }
+      },
+      {
+        "label": "Poliment ignorer",
+        "outcome": "Chacun sa route.",
+        "effects": {
+          "stats": {
+            "aim": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "charity_tournament",
+    "title": "Tournoi caritatif",
+    "text": "Une association organise un tournoi caritatif. Pas de cash prize, beaucoup de caméras.",
+    "category": "opportunite",
+    "weight": 9,
+    "conditions": {
+      "minStats": {
+        "notoriety": 25
+      }
+    },
+    "choices": [
+      {
+        "label": "Participer",
+        "outcome": "Bonne cause, bonne image, week-end chargé.",
+        "effects": {
+          "stats": {
+            "notoriety": 6,
+            "mental": 3
+          },
+          "money": -100
+        }
+      },
+      {
+        "label": "Décliner",
+        "outcome": "Tu restes concentré sur la saison.",
+        "effects": {
+          "stats": {
+            "gameSense": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "content_house",
+    "title": "Content house",
+    "text": "Des créateurs te proposent d'emménager dans leur maison de contenu. Caméras partout, fête permanente.",
+    "category": "opportunite",
+    "weight": 8,
+    "conditions": {
+      "minStats": {
+        "notoriety": 40
+      }
+    },
+    "choices": [
+      {
+        "label": "Emménager",
+        "outcome": "Ta notoriété explose. Ta prépa compétitive fond.",
+        "effects": {
+          "stats": {
+            "notoriety": 12,
+            "gameSense": -4,
+            "mental": -3
+          },
+          "money": 1500,
+          "chemistry": -8
+        }
+      },
+      {
+        "label": "Refuser, tu es un compétiteur",
+        "outcome": "Tu restes dans ton appart et dans tes scrims.",
+        "effects": {
+          "stats": {
+            "gameSense": 3,
+            "mental": 2
+          },
+          "chemistry": 4
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "algs_pressure",
+    "title": "Dernière chance de qualification",
+    "text": "Un seul slot reste pour le championnat. Toute la saison se joue sur un week-end.",
+    "category": "team",
+    "weight": 10,
+    "conditions": {
+      "tiers": [
+        "algs",
+        "lan",
+        "proleague"
+      ],
+      "minWeek": 60
+    },
+    "choices": [
+      {
+        "label": "Verrouiller la prépa, zéro distraction",
+        "outcome": "Semaine monacale. Le trio arrive affûté.",
+        "effects": {
+          "stats": {
+            "gameSense": 5,
+            "mental": -5
+          },
+          "chemistry": 10
+        }
+      },
+      {
+        "label": "Détendre l'atmosphère volontairement",
+        "outcome": "Vous jouez relâchés, sans peur de perdre.",
+        "effects": {
+          "stats": {
+            "mental": 8
+          },
+          "chemistry": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "lan_crowd",
+    "title": "La scène et le public",
+    "text": "Premier match sur la grande scène. Trois mille personnes, les mains moites sur la souris.",
+    "category": "perso",
+    "weight": 11,
+    "conditions": {
+      "tiers": [
+        "lan",
+        "algs"
+      ]
+    },
+    "choices": [
+      {
+        "label": "Prendre le public avec toi",
+        "outcome": "Tu lèves les bras avant le drop. La foule répond. Tu es chez toi.",
+        "effects": {
+          "stats": {
+            "mental": 10,
+            "notoriety": 6
+          }
+        }
+      },
+      {
+        "label": "Casque à fond, tunnel vision",
+        "outcome": "Tu isoles tout. Ça marche, mais tu ne vis rien.",
+        "effects": {
+          "stats": {
+            "gameSense": 3,
+            "mental": -2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "teammate_regression",
+    "title": "Ton coéquipier décroche",
+    "text": "Un de tes joueurs enchaîne les mauvaises semaines. Il parle moins, joue mou, s'excuse trop.",
+    "category": "team",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 30
+    },
+    "choices": [
+      {
+        "label": "Passer du temps avec lui hors du jeu",
+        "outcome": "Il te raconte tout. Il remonte doucement.",
+        "effects": {
+          "stats": {
+            "leadership": 4,
+            "mental": -2
+          },
+          "chemistry": 10,
+          "flags": [
+            "teammate_boost"
+          ]
+        }
+      },
+      {
+        "label": "Le benchmarker sur des VOD",
+        "outcome": "Approche froide et technique. Il corrige, sans se sentir soutenu.",
+        "effects": {
+          "stats": {
+            "gameSense": 3
+          },
+          "chemistry": -5,
+          "flags": [
+            "teammate_boost"
+          ]
+        }
+      },
+      {
+        "label": "Demander à l'org de le remplacer",
+        "outcome": "Décision brutale. Le trio change, l'équipe aussi.",
+        "effects": {
+          "stats": {
+            "mental": -4,
+            "leadership": 2
+          },
+          "chemistry": -12,
+          "flags": [
+            "teammate_leaves"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "superteam_offer",
+    "title": "Offre d'une superteam",
+    "text": "Deux joueurs top 5 mondiaux cherchent un troisième. Ton nom est sur la table. Il faut lâcher ton trio actuel.",
+    "category": "opportunite",
+    "weight": 7,
+    "conditions": {
+      "minWeek": 70,
+      "minStats": {
+        "notoriety": 55,
+        "aim": 60
+      }
+    },
+    "choices": [
+      {
+        "label": "Accepter et tout quitter",
+        "outcome": "Tu signes. Deux monstres à tes côtés, zéro alchimie pour l'instant.",
+        "effects": {
+          "stats": {
+            "notoriety": 10,
+            "mental": -6
+          },
+          "chemistry": -25,
+          "flags": [
+            "upgrade_teammates",
+            "sign_contract"
+          ]
+        }
+      },
+      {
+        "label": "Rester fidèle à ton trio",
+        "outcome": "Tu refuses. Tes coéquipiers l'apprennent et ne l'oublient jamais.",
+        "effects": {
+          "stats": {
+            "leadership": 5,
+            "mental": 4
+          },
+          "chemistry": 20
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "prize_dispute",
+    "title": "Partage des gains",
+    "text": "Après un bon résultat, la répartition du cash prize coince : ton fragger veut une part plus grosse.",
+    "category": "team",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 35,
+      "minMoney": 1500
+    },
+    "choices": [
+      {
+        "label": "Accepter sa demande",
+        "outcome": "Tu lâches du terrain pour la paix du groupe.",
+        "effects": {
+          "money": -800,
+          "chemistry": 8,
+          "stats": {
+            "mental": -2
+          }
+        }
+      },
+      {
+        "label": "Imposer un partage égal",
+        "outcome": "Tu tiens la ligne. Il boude une semaine.",
+        "effects": {
+          "stats": {
+            "leadership": 4
+          },
+          "chemistry": -8
+        }
+      },
+      {
+        "label": "Indexer les parts sur les stats",
+        "outcome": "Système transparent, adopté par tous après débat.",
+        "effects": {
+          "stats": {
+            "leadership": 6,
+            "gameSense": 2
+          },
+          "chemistry": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "analyst_offer",
+    "title": "Un desk t'invite",
+    "text": "Un diffuseur te propose une place d'analyste invité pendant les journées où tu ne joues pas.",
+    "category": "media",
+    "weight": 8,
+    "conditions": {
+      "minWeek": 80,
+      "minStats": {
+        "gameSense": 60,
+        "notoriety": 45
+      }
+    },
+    "choices": [
+      {
+        "label": "Accepter, ça te plaît vraiment",
+        "outcome": "Tu es bon devant la caméra. Une porte s'ouvre pour l'après.",
+        "effects": {
+          "money": 1200,
+          "stats": {
+            "notoriety": 7,
+            "leadership": 4,
+            "gameSense": 3,
+            "mental": -2
+          },
+          "flags": [
+            "analyst_path"
+          ]
+        }
+      },
+      {
+        "label": "Refuser, tu es encore joueur",
+        "outcome": "Tu remercies et tu retournes au serveur.",
+        "effects": {
+          "stats": {
+            "aim": 2,
+            "mental": 1
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "fan_hate",
+    "title": "Vague de haine",
+    "text": "Après une erreur en fin de zone diffusée en direct, ta boîte de réception déborde d'insultes.",
+    "category": "media",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 30,
+      "minStats": {
+        "notoriety": 35
+      }
+    },
+    "choices": [
+      {
+        "label": "Tout couper pendant une semaine",
+        "outcome": "Silence numérique complet. Ça va nettement mieux.",
+        "effects": {
+          "stats": {
+            "mental": 6,
+            "notoriety": -2
+          }
+        }
+      },
+      {
+        "label": "Lire, répondre, expliquer",
+        "outcome": "Tu t'épuises à argumenter contre des anonymes.",
+        "effects": {
+          "stats": {
+            "mental": -9,
+            "notoriety": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "coaching_gig",
+    "title": "Des joueurs veulent que tu les coaches",
+    "text": "Une équipe amateur te propose de les coacher deux soirs par semaine, payé.",
+    "category": "opportunite",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 40,
+      "minStats": {
+        "gameSense": 55
+      }
+    },
+    "choices": [
+      {
+        "label": "Accepter",
+        "outcome": "Expliquer te force à structurer ta compréhension du jeu.",
+        "effects": {
+          "money": 700,
+          "stats": {
+            "gameSense": 4,
+            "leadership": 5,
+            "mental": -3
+          },
+          "flags": [
+            "coach_path"
+          ]
+        }
+      },
+      {
+        "label": "Refuser, pas le temps",
+        "outcome": "Tu gardes tes soirées pour ta propre prépa.",
+        "effects": {
+          "stats": {
+            "aim": 2,
+            "mental": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "region_move",
+    "title": "Changer de région",
+    "text": "Une offre te propose de déménager dans une autre région pour rejoindre une équipe ambitieuse.",
+    "category": "org",
+    "weight": 7,
+    "conditions": {
+      "minWeek": 55,
+      "minStats": {
+        "notoriety": 40
+      }
+    },
+    "choices": [
+      {
+        "label": "Faire le grand saut",
+        "outcome": "Visa, appartement vide, langue étrangère. Le niveau est plus haut.",
+        "effects": {
+          "money": 1000,
+          "stats": {
+            "gameSense": 5,
+            "mental": -8,
+            "notoriety": 5
+          },
+          "chemistry": -12,
+          "flags": [
+            "upgrade_teammates"
+          ]
+        }
+      },
+      {
+        "label": "Rester chez toi",
+        "outcome": "Tu restes dans ton confort et ton écosystème.",
+        "effects": {
+          "stats": {
+            "mental": 4
+          },
+          "chemistry": 4
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "practice_partner_org",
+    "title": "Scrim bloc fermé",
+    "text": "Un bloc de scrims fermé, réservé aux meilleures équipes, t'ouvre une place si tu la prends maintenant.",
+    "category": "opportunite",
+    "weight": 10,
+    "conditions": {
+      "minWeek": 25
+    },
+    "choices": [
+      {
+        "label": "Prendre la place",
+        "outcome": "Le niveau est brutal. Tu apprends vite ou tu coules.",
+        "effects": {
+          "stats": {
+            "gameSense": 6,
+            "mental": -5
+          },
+          "chemistry": 5
+        }
+      },
+      {
+        "label": "Rester dans ton bloc actuel",
+        "outcome": "Tu domines ton bloc et tu progresses moins.",
+        "effects": {
+          "stats": {
+            "aim": 2,
+            "mental": 3
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "documentary",
+    "title": "Un documentaire sur toi",
+    "text": "Une équipe de tournage veut te suivre pendant un mois pour un documentaire.",
+    "category": "media",
+    "weight": 6,
+    "conditions": {
+      "minWeek": 90,
+      "minStats": {
+        "notoriety": 60
+      }
+    },
+    "choices": [
+      {
+        "label": "Ouvrir complètement les portes",
+        "outcome": "Le film est intime, dur, magnifique. La scène te découvre autrement.",
+        "effects": {
+          "stats": {
+            "notoriety": 14,
+            "mental": -4
+          },
+          "money": 2000
+        }
+      },
+      {
+        "label": "Refuser, garder ta vie privée",
+        "outcome": "Tu protèges ton espace.",
+        "effects": {
+          "stats": {
+            "mental": 5
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "young_gun",
+    "title": "La nouvelle génération",
+    "text": "Un rookie de 17 ans te surclasse en scrim. Tout le monde le voit. Toi le premier.",
+    "category": "perso",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 110
+    },
+    "choices": [
+      {
+        "label": "Retourner au range comme à tes débuts",
+        "outcome": "Tu bosses ta mécanique comme un rookie. Ça paie.",
+        "effects": {
+          "stats": {
+            "aim": 5,
+            "movement": 3,
+            "mental": -4
+          }
+        }
+      },
+      {
+        "label": "Miser sur l'expérience et le call",
+        "outcome": "Tu ne gagneras pas les duels, tu gagneras les positions.",
+        "effects": {
+          "stats": {
+            "gameSense": 6,
+            "leadership": 4,
+            "mental": 2
+          }
+        }
+      }
+    ],
+    "once": true
+  },
+  {
+    "id": "retirement_thought",
+    "title": "La question",
+    "text": "Un matin, sans raison, tu penses à ce que serait ta vie sans le jeu. La pensée ne part pas.",
+    "category": "perso",
+    "weight": 9,
+    "conditions": {
+      "minWeek": 140
+    },
+    "choices": [
+      {
+        "label": "Repousser, tu as encore faim",
+        "outcome": "Tu remets une pièce dans la machine.",
+        "effects": {
+          "stats": {
+            "mental": 4,
+            "aim": 1
+          }
+        }
+      },
+      {
+        "label": "Commencer à préparer l'après",
+        "outcome": "Tu poses les bases d'une reconversion. Le poids s'allège.",
+        "effects": {
+          "stats": {
+            "mental": 9,
+            "leadership": 3,
+            "gameSense": 2
+          },
+          "flags": [
+            "analyst_path"
+          ]
+        }
+      }
+    ],
+    "once": true
+  }
+]

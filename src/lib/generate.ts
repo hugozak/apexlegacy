@@ -6,16 +6,21 @@ let idCounter = 0;
 const nextId = () => `tm_${Date.now().toString(36)}_${idCounter++}`;
 
 /** Génère un coéquipier calibré autour d'un niveau moyen (0-100). */
-export function generateTeammate(level: number, excludeRoles: Role[] = []): Teammate {
+export function generateTeammate(
+  level: number,
+  excludeRoles: Role[] = [],
+  excludeNames: string[] = [],
+): Teammate {
   const roles = ROLES.filter((r) => !excludeRoles.includes(r.id));
   const role = pick(roles.length ? roles : ROLES);
+  const names = TEAMMATE_NAMES.filter((n) => !excludeNames.includes(n));
   const jitter = () => randInt(-8, 8);
   const scale = level / 50;
 
   const base = role.base;
   return {
     id: nextId(),
-    name: pick(TEAMMATE_NAMES),
+    name: pick(names.length ? names : TEAMMATE_NAMES),
     role: role.id,
     legend: pick(LEGENDS),
     personality: pick(PERSONALITIES),
@@ -34,8 +39,7 @@ export function generateTeammate(level: number, excludeRoles: Role[] = []): Team
 
 export function generateTrio(level: number, playerRole: Role): [Teammate, Teammate] {
   const a = generateTeammate(level, [playerRole]);
-  const b = generateTeammate(level, [playerRole, a.role]);
-  if (b.name === a.name) b.name = `${b.name}X`;
+  const b = generateTeammate(level, [playerRole, a.role], [a.name]);
   return [a, b];
 }
 

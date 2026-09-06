@@ -10,8 +10,9 @@ const display = Barlow_Condensed({
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
-  title: "APEX LEGACY — Simulation de carrière esport",
-  description: "Crée ton pro player Apex Legends et façonne sa carrière compétitive.",
+  title: "Apex Legacy — Simulation de carrière esport",
+  description:
+    "Crée ton pro player Apex Legends, gère ton mental et ton trio, et façonne une carrière de la ranked à la LAN internationale.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
